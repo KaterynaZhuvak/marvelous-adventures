@@ -1,0 +1,57 @@
+@import-normalize;
+
+body {
+  padding-top: 68px;
+  font-family: Poppins;
+  background: #0c0b0b;
+  color: white;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 320px) {
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 90px;
+  }
+  .container {
+    max-width: 768px;
+    padding: 0px 30px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+/* scrin 375 20 678 30 1000 30 */
