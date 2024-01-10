@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledHero = styled.div`
 overflow-x: hidden;
+margin-bottom: 80px;
 
   .description-container {
     margin-bottom: 40px;
@@ -107,6 +108,8 @@ overflow-x: hidden;
   }
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 120px;
+
     .description-container {
     margin-right: 198px;
     margin-bottom: 34px;
@@ -164,6 +167,7 @@ gap: 52px;
 @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
+    padding-top: 80px;
 
     .description-container {
         margin-top: 120px;

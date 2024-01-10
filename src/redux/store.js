@@ -1,13 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { homeReducer } from "./homeReducer";
-import { modalReducer } from "./modalReducer";
+import { generalModalReducer } from "./generalModalReducer";
+import { charactersModalReducer } from "./charactersModalReducer";
 
 export const store = configureStore({
   reducer: {
     homeStore: homeReducer,
-    modal: modalReducer,
+    generalModal: generalModalReducer,
+    charactersModal: charactersModalReducer,
   },
 });
-
-
-

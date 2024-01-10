@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { StyledModal } from "./Styled";
-import { useDispatch, useSelector } from "react-redux";
-import { closeModal } from "../../redux/modalReducer";
-import SimilarPartOfModals from "./SimilarPartOfModals";
+import { useDispatch } from "react-redux";
 
-const Modal = ({ children }) => {
+const Modal = ({ children, closeModal }) => {
   const dispatch = useDispatch();
-  const modalData = useSelector((state) => state.modal.modalData);
 
   const handleOverlayClick = (e) => {
     if (e.currentTarget === e.target) {
@@ -32,11 +29,11 @@ const Modal = ({ children }) => {
   return (
     <StyledModal onClick={handleOverlayClick}>
       <div className="modal">
-        <button className="close-btn" onClick={() => dispatch(closeModal())}>
-          {" "}
-          x{" "}
-        </button>
-        {modalData !== null && <SimilarPartOfModals data={modalData[0]} />}
+        <button
+          className="close-btn"
+          onClick={() => dispatch(closeModal())}
+        ></button>
+
         {children}
       </div>
     </StyledModal>

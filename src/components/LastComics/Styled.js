@@ -21,6 +21,7 @@ export const StyledLastComics = styled.div`
     height: 374px;
     border-radius: 10px;
     margin-right: 16px;
+    margin-bottom: 16px;
   }
 
   .name-of-comic {

@@ -3,10 +3,8 @@ import Creators from "./Creators";
 import Characters from "./Characters";
 
 const ComicPartOfModal = ({ data, creators, characters }) => {
-  console.log("characters: ", characters);
-  console.log("creators: ", creators);
   return (
-    <div>
+    <>
       <ul className="modal-items">
         <li>
           <h4 className="modal-title-item">Format</h4>
@@ -53,13 +51,14 @@ const ComicPartOfModal = ({ data, creators, characters }) => {
                 item.thumbnail.extension
               }
               name={item.name}
+              id={item.id}
             />
           ))
         ) : (
           <p className="modal-description">No characters</p>
         )}
       </ul>
-    </div>
+    </>
   );
 };
 

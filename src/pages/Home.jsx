@@ -3,12 +3,16 @@ import Hero from "../components/Hero/Hero";
 import LastComics from "../components/LastComics/LastComics";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLastComics } from "../redux/homeReducer";
-import GeneralModal from "../components/Modal/GeneralModal";
+import GeneralModal from "../components/Modal/GeneralModal/GeneralModal";
+import CharactersModal from "../components/Modal/CharactersModal/CharactersModal";
+import { openModalCharacters } from "../redux/charactersModalReducer";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const openModal = useSelector((state) => state.modal.isOpenModal);
-  const modalData = useSelector((state) => state.modal.modalData);
+  const openModal = useSelector((state) => state.generalModal.isOpenModal);
+  const openModalCharacters = useSelector(
+    (state) => state.charactersModal.isOpenModal
+  );
 
   useEffect(() => {
     dispatch(fetchLastComics());
@@ -19,6 +23,7 @@ const Home = () => {
       <Hero />
       <LastComics />
       {openModal && <GeneralModal />}
+      {openModalCharacters && <CharactersModal />}
     </div>
   );
 };

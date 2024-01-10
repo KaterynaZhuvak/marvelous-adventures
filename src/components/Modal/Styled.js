@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import close from "../../img/x.png";
 
 export const StyledModal = styled.div`
   position: fixed;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -12,7 +14,21 @@ export const StyledModal = styled.div`
     cursor: pointer;
   }
 
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background-image: url(${close});
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    fill: white;
+    background-color: transparent;
+    border: none;
+  }
+
   .modal {
+    box-sizing: border-box;
     width: 335px;
     height: 100%;
     position: absolute;
@@ -22,10 +38,9 @@ export const StyledModal = styled.div`
     &:hover {
       cursor: auto;
     }
-    background: #0c0b0b;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 40px 20px;
-    background: #171717;
+    background: #0c0b0b;
   }
 
   .modal-img {
@@ -35,6 +50,12 @@ export const StyledModal = styled.div`
     margin-bottom: 22px;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .description-wrapper {
+    background: #171717;
+    padding: 32px 16px;
+    border-radius: 10px;
   }
 
   .modal-title {
@@ -50,7 +71,6 @@ export const StyledModal = styled.div`
 
   .modal-year {
     color: rgba(250, 250, 250, 0.5);
-    font-family: Poppins;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -59,8 +79,6 @@ export const StyledModal = styled.div`
   }
 
   .modal-description {
-    color: #fafafa;
-    font-family: Poppins;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -75,7 +93,6 @@ export const StyledModal = styled.div`
 
   .modal-title-item {
     color: rgba(250, 250, 250, 0.5);
-    font-family: Poppins;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -95,22 +112,51 @@ export const StyledModal = styled.div`
     margin-bottom: 16px;
   }
 
-  .close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
-
   .creator-img,
   .character-img {
     width: 50px;
     height: 50px;
-    border-radius: 8px;
+    border-radius: 10px;
+  }
+
+  .list-of-comics-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .list-of-comics-img {
+    width: 263px;
+    height: 263px;
+  }
+
+  .modal-character-list {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    margin-bottom: 16px;
+  }
+
+  .modal-character-title {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    margin-top: 16px;
   }
 
   @media screen and (min-width: 768px) {
     .modal {
       width: 600px;
+      height: 800px;
+    }
+
+    .close-btn {
+      width: 28px;
+      height: 28px;
     }
 
     .modal-img {
@@ -146,11 +192,43 @@ export const StyledModal = styled.div`
     .creators-wrapper li {
       flex: 1 0 45%;
     }
+
+    .list-of-comics-img {
+      width: 155px;
+      height: 200px;
+    }
+
+    .list-of-comics-wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: space-between;
+    }
+
+    .list-of-comics-wrapper li {
+      flex: 0 0 calc(30% - 10px);
+      margin-bottom: 10px;
+    }
+
+    .modal-character-list {
+      font-size: 24px;
+      letter-spacing: -0.48px;
+    }
   }
 
   @media screen and (min-width: 1440px) {
     .modal {
       width: 1000px;
+      height: 600px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .modal-content-wrapper {
+      display: flex;
+    }
+
+    .list-of-comics-img {
+      width: 174px;
     }
   }
 `;

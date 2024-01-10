@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { openModal } from "../../redux/modalReducer";
+import { openModal } from "../../redux/generalModalReducer";
 
 const ComicsCard = ({ picture, title, author, id }) => {
   const dispatch = useDispatch();
