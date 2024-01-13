@@ -2,19 +2,23 @@ import React from "react";
 import { register } from "swiper/element/bundle";
 
 import Slide from "./Slide";
-import purpleHero1 from "../../img/purple-hero1.png";
-import purpleHero2 from "../../img/purple-hero2.png";
-import redHero1 from "../../img/red-hero1.png";
-import redHero2 from "../../img/red-hero2.png";
-import greenHero1 from "../../img/green-hero1.png";
-import greenHero2 from "../../img/green-hero2.png";
+import purpleHero1 from "../../../img/purple-hero1.png";
+import purpleHero2 from "../../../img/purple-hero2.png";
+import redHero1 from "../../../img/red-hero1.png";
+import redHero2 from "../../../img/red-hero2.png";
+import greenHero1 from "../../../img/green-hero1.png";
+import greenHero2 from "../../../img/green-hero2.png";
 
-const Hero = () => {
+const GeneralHero = () => {
   register();
   return (
     <div className="container">
-      <swiper-container  class="mySwiper" pagination="true" pagination-clickable="true"
-    loop="true">
+      <swiper-container
+        class="mySwiper"
+        pagination="true"
+        pagination-clickable="true"
+        loop="true"
+      >
         <swiper-slide>
           <Slide
             color={"#34387F"}
@@ -51,4 +55,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default GeneralHero;

@@ -54,6 +54,8 @@ export const StyledModal = styled.div`
 
   .description-wrapper {
     background: #171717;
+    height: 100%;
+    overflow-y: scroll;
     padding: 32px 16px;
     border-radius: 10px;
   }

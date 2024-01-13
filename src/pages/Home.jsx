@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Hero from "../components/Hero/Hero";
+import GeneralHero from "../components/Hero/GeneralHero/GeneralHero";
 import LastComics from "../components/LastComics/LastComics";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLastComics } from "../redux/homeReducer";
@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div>
-      <Hero />
+      <GeneralHero />
       <LastComics />
       {openModal && <GeneralModal />}
       {openModalCharacters && <CharactersModal />}
