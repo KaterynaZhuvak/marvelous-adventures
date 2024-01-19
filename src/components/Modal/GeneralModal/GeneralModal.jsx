@@ -21,7 +21,7 @@ const GeneralModal = () => {
     dispatch(fetchComicsById(modalId));
     dispatch(fetchCharactersById(modalId));
     dispatch(fetchCreatorsById(modalId));
-  }, [dispatch]);
+  }, [dispatch, modalId]);
 
   return (
     <>

@@ -24,7 +24,7 @@ const Modal = ({ children, closeModal }) => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <StyledModal onClick={handleOverlayClick}>

@@ -15,7 +15,7 @@ const Pagination = ({
     <div className="pagination-wrapper">
       {pages.map((page, i) => (
         <button
-          className={page == currentPage ? "active" : "pagination-btn"}
+          className={page === currentPage ? "active" : "pagination-btn"}
           key={i}
           onClick={() => setCurrentPage(page)}
         >

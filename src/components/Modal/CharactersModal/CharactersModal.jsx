@@ -17,7 +17,7 @@ const CharactersModal = () => {
   useEffect(() => {
     dispatch(fetchCharacterById(modalId));
     dispatch(fetchListOfComicsById(modalId));
-  }, [dispatch]);
+  }, [dispatch, modalId]);
   return (
     <>
       {modalData !== null && (
@@ -34,9 +34,6 @@ const CharactersModal = () => {
           />
           <div className="description-wrapper">
             <h2 className="modal-title">{modalData.name}</h2>
-            {/* <p className="modal-year">
-          Year of release | {parseInt(data.dates[0].date)}
-        </p> */}
             {modalData.description.length !== 0 ? (
               <p className="modal-description">{modalData.description}</p>
             ) : (
