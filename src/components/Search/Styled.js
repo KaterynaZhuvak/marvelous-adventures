@@ -51,6 +51,25 @@ export const StyledSearchList = styled.div`
     cursor: pointer;
   }
 
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select::-webkit-select-placeholder {
+    color: #fafafa;
+  }
+
+  select::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  select::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 6px;
+  }
+
   .search-comics-container {
     display: flex;
     justify-content: center;
