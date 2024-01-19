@@ -119,6 +119,15 @@ export const StyledModal = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 10px;
+
+    transition: all 0.5s linear;
+  }
+
+  .character-img:hover,
+  .character-img:focus {
+    border-color: #b9d3f3;
+    box-shadow: 0 0 10px rgba(219, 223, 246, 0.8);
+    transform: scale(1.05);
   }
 
   .list-of-comics-wrapper {

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchLastComics } from "../redux/homeReducer";
 import GeneralModal from "../components/Modal/GeneralModal/GeneralModal";
 import CharactersModal from "../components/Modal/CharactersModal/CharactersModal";
-import { openModalCharacters } from "../redux/charactersModalReducer";
 
 const Home = () => {
   const dispatch = useDispatch();

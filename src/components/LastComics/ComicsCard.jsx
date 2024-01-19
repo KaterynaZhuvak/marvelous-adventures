@@ -6,7 +6,10 @@ const ComicsCard = ({ picture, title, author, id }) => {
   const dispatch = useDispatch();
 
   return (
-    <swiper-slide onClick={() => dispatch(openModal(id))}>
+    <swiper-slide
+      className="swiper-item"
+      onClick={() => dispatch(openModal(id))}
+    >
       <img
         className="comic-img"
         width="auto"

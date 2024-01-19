@@ -69,6 +69,15 @@ export const StyledFooter = styled.div`
     .link {
       width: 40px;
       height: 40px;
+
+      transition: all 0.5s linear;
+    }
+
+    .link:hover,
+    .link:focus {
+      border-color: #b9d3f3;
+      box-shadow: 0 0 10px rgba(219, 223, 246, 0.8);
+      transform: scale(1.1);
     }
 
     .color-part-of-footer-title {

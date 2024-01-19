@@ -44,10 +44,13 @@ margin-bottom: 80px;
   .hero-btn {
     border-radius: 1000px;
     border: none;
+    width: 135px;
     background-color: ${(props) => props.backgroundcolor};
     display: flex;
     padding: 10px 20px;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     gap: 10px;
     color: #fafafa;
     font-family: Poppins;
@@ -56,6 +59,7 @@ margin-bottom: 80px;
     font-weight: 500;
     line-height: 16px;
     text-transform: uppercase;
+    text-decoration: none;
   }
 
   .hero-img {

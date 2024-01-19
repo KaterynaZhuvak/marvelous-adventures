@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledHero } from "./Styled";
+import { Link } from "react-router-dom";
 
 const Slide = ({ color, characterDescription, img1, img2 }) => {
   return (
@@ -14,7 +15,9 @@ const Slide = ({ color, characterDescription, img1, img2 }) => {
           our Characters and Comics sections and discover your new favorites
           today.
         </p>
-        <button className="hero-btn">All comics</button>
+        <Link className="hero-btn" to="/search">
+          All comics
+        </Link>
       </div>
       <div className="positional-container">
         <div className="img-container">

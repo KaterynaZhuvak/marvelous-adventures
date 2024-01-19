@@ -34,12 +34,8 @@ const SearchForm = () => {
       order,
       year,
     };
-    console.log(formData);
 
-    // console.log(formData);
     dispatch(fetchComicsBySearchData(formData));
-
-    // handleAddProduct(productData);
 
     setTitle("");
     setFormat("comic");
@@ -50,7 +46,7 @@ const SearchForm = () => {
   };
 
   const handleInputChange = (e) => {
-    const name = e.target.name; // 'price'
+    const name = e.target.name;
     const value = e.target.value;
 
     switch (name) {
@@ -128,7 +124,6 @@ const SearchForm = () => {
             placeholder="Enter year"
           />
         </div>
-
         <button className="search-btn" type="submit">
           <img width="18" height="18" src={search} alt="search" />
         </button>

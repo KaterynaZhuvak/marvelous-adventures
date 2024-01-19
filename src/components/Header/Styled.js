@@ -3,12 +3,12 @@ import search from "../../img/search.png";
 import home from "../../img/home.png";
 
 export const StyledHeader = styled.div`
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    right: 0;
-    left: 0;
-    background-color: transparent;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: transparent;
 
   header {
     padding: 20px;
@@ -47,6 +47,14 @@ export const StyledHeader = styled.div`
     font-weight: 500;
     line-height: 14px; /* 116.667% */
     text-transform: uppercase;
+    transition: all 0.5s linear;
+  }
+
+  .link:hover,
+  .link:focus {
+    border-color: #b9d3f3;
+    box-shadow: 0 0 10px rgba(219, 223, 246, 0.8);
+    transform: scale(1.1);
   }
 
   .search::before {
@@ -58,7 +66,7 @@ export const StyledHeader = styled.div`
     background-size: cover;
   }
 
-   .home::before {
+  .home::before {
     content: "";
     width: 18px;
     height: 18px;
