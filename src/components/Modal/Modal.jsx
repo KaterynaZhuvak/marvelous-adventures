@@ -11,20 +11,20 @@ const Modal = ({ children, closeModal }) => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.code === "Escape") {
-      dispatch(closeModal());
-    }
-  };
-
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === "Escape") {
+        dispatch(closeModal());
+      }
+    };
+
     window.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
     };
-  }, [handleKeyDown]);
+  }, []);
 
   return (
     <StyledModal onClick={handleOverlayClick}>

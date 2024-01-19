@@ -19,8 +19,6 @@ const SearchList = () => {
   const currentComics =
     comicsList !== null && comicsList.slice(firstComicIndex, lastComicIndex);
 
-  console.log("currentComics: ", currentComics);
-
   return (
     <StyledSearchList className="container">
       <SearchForm />

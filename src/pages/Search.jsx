@@ -15,7 +15,7 @@ const Search = () => {
 
   useEffect(() => {
     dispatch(fetchLastComics());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
