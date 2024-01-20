@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { StyledSearchList } from "./Styled";
 import { useSelector } from "react-redux";
+import { NoResults } from "../../img/NoResults";
 
 import SearchForm from "./SearchForm";
 import ComicsList from "./ComicsList";
@@ -39,13 +40,15 @@ const SearchList = () => {
           ))}
         </ul>
       )}
-      {comicsList !== null && (
+      {comicsList !== null && comicsList.length > 0 ? (
         <Pagination
           totalComics={comicsList.length}
           comicsPerPage={comicsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
+      ) : (
+        <NoResults max-width="360px" height="220px" />
       )}
     </StyledSearchList>
   );

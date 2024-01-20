@@ -165,6 +165,25 @@ export const StyledSearchList = styled.div`
     line-height: 18px;
   }
 
+  .svg-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .text-for-svg {
+    color: #fafafa;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 190px;
+  }
+
   @media screen and (min-width: 768px) {
     .form-wrapper {
       justify-content: center;
@@ -190,6 +209,10 @@ export const StyledSearchList = styled.div`
 
     .pagination-wrapper {
       margin-bottom: 80px;
+    }
+
+    .svg-wrapper {
+      margin-bottom: 60px;
     }
   }
 
