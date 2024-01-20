@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -53,30 +53,28 @@ const characterModalSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchCharacterById.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchCharacterById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.modalData = payload;
-      })
-      .addCase(fetchCharacterById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      })
-      .addCase(fetchListOfComicsById.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
       })
       .addCase(fetchListOfComicsById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.comicsList = payload;
       })
-      .addCase(fetchListOfComicsById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      }),
+      .addMatcher(
+        isAnyOf(fetchCharacterById.pending, fetchListOfComicsById.pending),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(fetchCharacterById.rejected, fetchListOfComicsById.pending),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      ),
 });
 
 export const { openModalCharacters, closeModalCharacters } =

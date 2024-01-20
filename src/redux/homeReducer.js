@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchLastComics = createAsyncThunk(
@@ -33,15 +33,15 @@ const homeSlice = createSlice({
   reducers: {},
   extraReducers: (builder) =>
     builder
-      .addCase(fetchLastComics.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchLastComics.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.lastComics = payload;
       })
-      .addCase(fetchLastComics.rejected, (state, { payload }) => {
+      .addMatcher(isAnyOf(fetchLastComics.pending), (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addMatcher(isAnyOf(fetchLastComics.rejected), (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       }),

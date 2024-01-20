@@ -119,8 +119,11 @@ export const StyledModal = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 10px;
-
     transition: all 0.5s linear;
+  }
+
+  .character-img {
+    cursor: pointer;
   }
 
   .character-img:hover,

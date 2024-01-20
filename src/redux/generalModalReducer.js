@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -67,42 +67,40 @@ const generalModalSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchComicsById.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchComicsById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.modalData = payload;
-      })
-      .addCase(fetchComicsById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      })
-      .addCase(fetchCharactersById.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
       })
       .addCase(fetchCharactersById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.characters = payload;
       })
-      .addCase(fetchCharactersById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      })
-      .addCase(fetchCreatorsById.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchCreatorsById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.creators = payload;
       })
-      .addCase(fetchCreatorsById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      }),
+      .addMatcher(
+        isAnyOf(
+          fetchComicsById.pending,
+          fetchCharactersById.pending,
+          fetchCreatorsById.pending
+        ),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchComicsById.rejected,
+          fetchCharactersById.pending,
+          fetchCreatorsById.pending
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      ),
 });
 
 export const { openModal, closeModal } = generalModalSlice.actions;

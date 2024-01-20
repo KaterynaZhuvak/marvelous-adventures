@@ -39,7 +39,7 @@ export const StyledSearchList = styled.div`
   }
 
   .search-input {
-    width: 375px;
+    width: 360px;
   }
 
   .search-btn {

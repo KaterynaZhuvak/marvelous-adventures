@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const CharactersModal = () => {
   const modalData = useSelector((state) => state.charactersModal.modalData);
-  console.log("modalData: ", modalData);
   const modalId = useSelector((state) => state.charactersModal.modalId);
   const comicsList = useSelector((state) => state.charactersModal.comicsList);
   const dispatch = useDispatch();

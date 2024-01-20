@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchLastComics = createAsyncThunk(
@@ -50,30 +50,28 @@ const searchSlice = createSlice({
   reducers: {},
   extraReducers: (builder) =>
     builder
-      .addCase(fetchLastComics.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchLastComics.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.searchData = payload;
-      })
-      .addCase(fetchLastComics.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      })
-      .addCase(fetchComicsBySearchData.pending, (state, _) => {
-        state.isLoading = true;
-        state.error = null;
       })
       .addCase(fetchComicsBySearchData.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.searchData = payload;
       })
-      .addCase(fetchComicsBySearchData.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      }),
+      .addMatcher(
+        isAnyOf(fetchLastComics.pending, fetchComicsBySearchData.pending),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(fetchLastComics.rejected, fetchComicsBySearchData.pending),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      ),
 });
 
 export const searchReducer = searchSlice.reducer;
