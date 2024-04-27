@@ -40,4 +40,4 @@
 + swiper
 
 
-***I hope you find your perfect car and have a perfect weekend!***:sparkles:
+***I hope you find your perfect comics and have a perfect weekend!***:sparkles:
