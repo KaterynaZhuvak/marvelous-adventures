@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import { fetchComicsBySearchData } from "../../redux/searchReducer";
 import { useDispatch } from "react-redux";
-
+import { fetchComicsBySearchData } from "../../redux/searchReducer";
 import search from "../../img/search.png";
 
 const SearchForm = () => {
+  const [selectedFormat, setSelectedFormat] = useState("");
+  const [selectedOrder, setSelectedOrder] = useState("");
+  const [openFormat, setOpenFormat] = useState(false);
+  const [openOrder, setOpenOrder] = useState(false);
   const [title, setTitle] = useState("");
-  const [format, setFormat] = useState("comic");
-  const [order, setOrder] = useState("FocDate");
   const [year, setYear] = useState("");
-
   const dispatch = useDispatch();
 
   const formats = [
     "comic",
     "magazine",
-    "trade paperback",
     "hardcover",
     "digest",
     "graphic novel",
@@ -30,51 +29,41 @@ const SearchForm = () => {
 
     const formData = {
       title,
-      format,
-      order,
+      format: selectedFormat || "comic",
+      order: selectedOrder || "FocDate",
       year,
     };
 
     dispatch(fetchComicsBySearchData(formData));
+    console.log(formData);
 
     setTitle("");
-    setFormat("comic");
-    setOrder("FocDate");
+    setSelectedFormat("");
+    setSelectedOrder("");
     setYear("");
     const form = e.target;
     form.reset();
   };
 
   const handleInputChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name, value } = e.target;
 
     switch (name) {
-      case "title": {
+      case "title":
         setTitle(value);
-        return;
-      }
-      case "format": {
-        setFormat(value);
-        return;
-      }
-      case "orderBy": {
-        setOrder(value);
-        return;
-      }
-      case "year": {
+        break;
+      case "year":
         setYear(value);
-        return;
-      }
+        break;
       default:
-        return;
+        break;
     }
   };
+
   return (
     <div>
       <form className="form-wrapper" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title Starts With</label>
           <input
             className="search-input search-item"
             id="title"
@@ -84,38 +73,48 @@ const SearchForm = () => {
             placeholder="Enter name"
           />
         </div>
-        <div>
-          <label htmlFor="format">Format</label>
-          <select
-            className="search-item"
-            onChange={handleInputChange}
-            name="format"
-            id="format"
-          >
-            {formats.map((item) => (
-              <option key={item} className="option-names" value={item}>
-                {item}
-              </option>
+
+        <div onClick={() => setOpenFormat(!openFormat)}>
+          <div className="search-item">
+            {selectedFormat ? selectedFormat : "Format"}
+          </div>
+
+          <ul className={`formDrop ${openFormat ? "block" : "hidden"}`}>
+            {formats.map((format) => (
+              <li
+                key={format}
+                onClick={() => {
+                  setSelectedFormat(format);
+                  setOpenFormat(false);
+                }}
+              >
+                {format}
+              </li>
             ))}
-          </select>
+          </ul>
         </div>
-        <div>
-          <label htmlFor="order">Order By</label>
-          <select
-            className="search-item"
-            onChange={handleInputChange}
-            name="orderBy"
-            id="order"
-          >
-            {orders.map((item) => (
-              <option key={item} className="option-names" value={item}>
-                {item}
-              </option>
+
+        <div onClick={() => setOpenOrder(!openOrder)}>
+          <div className="search-item">
+            {selectedOrder ? selectedOrder : "Order"}
+          </div>
+
+          <ul className={`formDropOrder ${openOrder ? "block" : "hidden"}`}>
+            {orders.map((order) => (
+              <li
+                key={order}
+                onClick={() => {
+                  setSelectedOrder(order);
+                  setOpenOrder(false);
+                }}
+              >
+                {order}
+              </li>
             ))}
-          </select>
+          </ul>
         </div>
+
         <div>
-          <label htmlFor="year">Start Year</label>
           <input
             className="search-item"
             onChange={handleInputChange}

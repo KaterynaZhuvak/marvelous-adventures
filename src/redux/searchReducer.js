@@ -28,9 +28,11 @@ export const fetchComicsBySearchData = createAsyncThunk(
     };
     try {
       const { data } = await axios.get(url, { params });
+      console.log(data);
       console.log("data: ", data.data.results);
       return data.data.results;
     } catch (err) {
+      console.log("err: ", err);
       return thunkApi.rejectWithValue(err.message);
     }
   }

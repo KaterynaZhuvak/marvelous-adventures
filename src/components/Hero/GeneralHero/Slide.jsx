@@ -2,7 +2,14 @@ import React from "react";
 import { StyledHero } from "./Styled";
 import { Link } from "react-router-dom";
 
-const Slide = ({ color, characterDescription, img1, img2 }) => {
+const Slide = ({
+  color,
+  characterDescription,
+  img1,
+  img1_2x,
+  img2,
+  img2_2x,
+}) => {
   return (
     <StyledHero backgroundcolor={color}>
       <div className="description-container">
@@ -21,8 +28,16 @@ const Slide = ({ color, characterDescription, img1, img2 }) => {
       </div>
       <div className="positional-container">
         <div className="img-container">
-          <img className="hero-img left-img" src={img1} alt="" />
-          <img className="hero-img right-img" src={img2} alt="" />
+          <img
+            className="hero-img left-img"
+            srcSet={`${img1} 1x, ${img1_2x} 2x`}
+            alt=""
+          />
+          <img
+            className="hero-img right-img"
+            srcSet={`${img2} 1x, ${img2_2x} 2x`}
+            alt=""
+          />
         </div>
         <div className="character-container">
           <h3 className="character-title">Characters</h3>

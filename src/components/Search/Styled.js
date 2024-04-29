@@ -1,12 +1,63 @@
 import styled from "styled-components";
 
 export const StyledSearchList = styled.div`
+  .block {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .formDrop {
+    position: absolute;
+    top: 60px;
+    left: 40.4%;
+    border-radius: 16px;
+    background: #34387f;
+
+    padding: 14px 24px;
+    z-index: 1;
+    width: 120px;
+    height: auto;
+    overflow: auto;
+    padding: 10px 18px;
+  }
+
+  .formDropOrder {
+    position: absolute;
+    top: 60px;
+    left: 51.2%;
+    border-radius: 16px;
+    background: #34387f;
+    padding: 14px 24px;
+    z-index: 1;
+    width: 120px;
+    height: auto;
+    overflow: auto;
+    padding: 10px 18px;
+  }
+
+  .formDrop li,
+  .formDropOrder li {
+    color: #fafafa;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 4px 0;
+    cursor: pointer;
+  }
+
   .form-wrapper {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
     margin-bottom: 40px;
+    align-items: flex-start;
   }
 
   label {
@@ -21,6 +72,7 @@ export const StyledSearchList = styled.div`
   }
 
   .search-item {
+    position: relative;
     width: 150px;
     box-sizing: border-box;
     display: inline-block;
@@ -36,6 +88,7 @@ export const StyledSearchList = styled.div`
     line-height: 18px;
     margin-bottom: 12px;
     text-transform: capitalize;
+    cursor: pointer;
   }
 
   .search-input {

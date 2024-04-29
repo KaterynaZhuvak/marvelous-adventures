@@ -25,6 +25,13 @@ export const StyledModal = styled.div`
     fill: white;
     background-color: transparent;
     border: none;
+    cursor: pointer;
+    transition: all 0.5s linear;
+  }
+
+  .close-btn:hover,
+  .close-btn:focus {
+    transform: scale(1.2);
   }
 
   .modal {
@@ -58,6 +65,7 @@ export const StyledModal = styled.div`
     overflow-y: scroll;
     padding: 32px 16px;
     border-radius: 10px;
+    overflow: hidden;
   }
 
   .modal-title {
@@ -232,7 +240,7 @@ export const StyledModal = styled.div`
   @media screen and (min-width: 1440px) {
     .modal {
       width: 1000px;
-      height: 600px;
+      min-height: 600px;
       display: flex;
       gap: 16px;
     }

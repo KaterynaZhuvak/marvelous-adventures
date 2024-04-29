@@ -1,15 +1,20 @@
 import styled from "styled-components";
-import hero from "../../../img/avengers-marvel-hero.png";
-import heroTablet from "../../../img/avengers-marvel-hero-tablet.png";
-import heroDesktop from "../../../img/avengers-marvel-hero-desktop.png";
+import heroDesktop from "../../../img/avengers-marvel.png";
+import heroDesktop2x from "../../../img/avengers-marvel@2x.png";
 
 export const StyledSearchHero = styled.div`
   margin-bottom: 20px;
   .hero-img {
     height: 460px;
-    background-image: url(${hero});
+    background-image: url(${heroDesktop});
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-img {
+      background-image: url(${heroDesktop2x});
+    }
   }
 
   .hero-description-container {
@@ -46,9 +51,6 @@ export const StyledSearchHero = styled.div`
   @media screen and (min-width: 768px) {
     .hero-img {
       height: 650px;
-      background-image: url(${heroTablet});
-      background-size: contain;
-      background-position: right bottom;
     }
 
     .hero-description-container {
@@ -80,7 +82,6 @@ export const StyledSearchHero = styled.div`
   @media screen and (min-width: 1440px) {
     .hero-img {
       height: 770px;
-      background-image: url(${heroDesktop});
     }
   }
 `;

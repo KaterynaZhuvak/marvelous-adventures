@@ -17,6 +17,7 @@ const LastComics = () => {
             clickable="true"
             pagination="true"
             spaceBetween="16"
+            slidesPerView="auto"
             slides-per-view="auto"
             pagination-dynamic-bullets="true"
             loop="true"

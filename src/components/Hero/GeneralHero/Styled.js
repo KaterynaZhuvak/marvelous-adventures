@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHero = styled.div`
-overflow-x: hidden;
+overflow: hidden;
 margin-bottom: 80px;
 
   .description-container {
@@ -60,6 +60,13 @@ margin-bottom: 80px;
     line-height: 16px;
     text-transform: uppercase;
     text-decoration: none;
+       transition: all 0.5s linear;
+  }
+
+  .hero-btn:hover,
+  .hero-btn:focus {
+    border-color: #b9d3f3;
+    box-shadow: 0 0 10px rgba(219, 223, 246, 0.8);
   }
 
   .hero-img {
@@ -68,20 +75,21 @@ margin-bottom: 80px;
     border-radius: 4px;
   }
 
-  .left-img {
-    margin-right: auto;
-    margin-bottom: 20px;
-    box-shadow: 0px -82px 162px -19px ${(props) => props.backgroundcolor};
--webkit-box-shadow: 0px -82px 162px -19px ${(props) => props.backgroundcolor};
--moz-box-shadow: 0px -82px 162px -19px ${(props) => props.backgroundcolor};
-  }
+//   .left-img {
+//     margin-right: auto;
+//     margin-bottom: 20px;
+//     box-shadow: 0px -82px 162px -19px ${(props) => props.backgroundcolor};
+// -webkit-box-shadow: 0px -82px 162px -19px ${(props) =>
+  props.backgroundcolor};
+// -moz-box-shadow: 0px -82px 162px -19px ${(props) => props.backgroundcolor};
+//   }
 
- .right-img {
-    margin-left: auto;
-    box-shadow: 0px 80px 162px -19px ${(props) => props.backgroundcolor};
--webkit-box-shadow: 0px 80px 162px -19px ${(props) => props.backgroundcolor};
--moz-box-shadow: 0px 80px 162px -19px ${(props) => props.backgroundcolor};
-  }
+//  .right-img {
+//     margin-left: auto;
+//     box-shadow: 0px 80px 162px -19px ${(props) => props.backgroundcolor};
+// -webkit-box-shadow: 0px 80px 162px -19px ${(props) => props.backgroundcolor};
+// -moz-box-shadow: 0px 80px 162px -19px ${(props) => props.backgroundcolor};
+//   }
 
   .character-container {
     display: flex;

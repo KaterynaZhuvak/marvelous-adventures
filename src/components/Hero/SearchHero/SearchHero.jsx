@@ -4,8 +4,8 @@ import { StyledSearchHero } from "../SearchHero/Styled";
 const SearchHero = () => {
   return (
     <StyledSearchHero>
-      <div className="container hero-img">
-        <div className="hero-description-container">
+      <div className="hero-img">
+        <div className="container hero-description-container">
           <p className="hero-text">Web-based platform</p>
           <h1 className="hero-title">Comics</h1>
           <p className="hero-description">

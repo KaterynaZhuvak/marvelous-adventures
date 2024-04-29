@@ -5,7 +5,9 @@ margin-bottom: 40px;
 .swiper swiper-slide {
     width: auto;
     cursor: pointer;
+    padding: 20px 10px;
 }
+
   .comics-title {
     color: #fafafa;
     font-family: Poppins;
@@ -19,8 +21,7 @@ margin-bottom: 40px;
   }
   
   .comic-img {
-    width: 323px;
-    height: 374px;
+    width: 320px;
     border-radius: 10px;
     margin-right: 16px;
     margin-bottom: 16px;
