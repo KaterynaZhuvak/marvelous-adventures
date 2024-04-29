@@ -66,7 +66,7 @@ margin-bottom: 80px;
   .hero-btn:hover,
   .hero-btn:focus {
     border-color: #b9d3f3;
-    box-shadow: 0 0 10px rgba(219, 223, 246, 0.8);
+    box-shadow: 0 0 10px rgba(219, 223, 246, 0.2);
   }
 
   .hero-img {
